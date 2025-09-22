@@ -4,8 +4,8 @@ services:
     container_name: filestash
     restart: always
     environment:
-      ADMIN_PASSWORD: $2a$12$j19IZfknibsDSnYn70gAjeoCCfuXAPLjk9EMEE0/0EUC3OVL.DnV2
-      AUTH: aa
+      ADMIN_PASSWORD: "$2a$12$j19IZfknibsDSnYn70gAjeoCCfuXAPLjk9EMEE0/0EUC3OVL.DnV2"
+      AUTH: "aa"
       # Optionally: customize local file system root
       # LOCAL_FS_PATH: /srv/files
     volumes:
