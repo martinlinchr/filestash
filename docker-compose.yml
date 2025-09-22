@@ -3,16 +3,9 @@ services:
     image: machines/filestash:latest
     container_name: filestash
     restart: always
-    environment:
-      ADMIN_PASSWORD: "$2a$12$j19IZfknibsDSnYn70gAjeoCCfuXAPLjk9EMEE0/0EUC3OVL.DnV2"
-      AUTH: "aa"
-      # ADMIN_PASSWORD: ${ADMIN_PASSWORD}
-      # AUTH: ${AUTH}
-      # Optionally: customize local file system root
-      # LOCAL_FS_PATH: /srv/files
+    environment: {}
     volumes:
       - filestash:/app/data/state/
-      # - /host/path:/mnt  # mount files if needed
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.filestash.rule=Host(`filestash.martin-linde.com`)"
