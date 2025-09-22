@@ -13,4 +13,5 @@ services:
       - "traefik.http.routers.filestash.entrypoints=websecure"
       - "traefik.http.services.filestash.loadbalancer.server.port=8334"
 volumes:
+  wp_app:
   filestash:
