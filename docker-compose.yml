@@ -5,7 +5,7 @@ services:
     restart: always
     environment: {}
     volumes:
-      - wp_app:/www
+      - wp_app:/var/www/html
       - filestash:/app/data/state/
     labels:
       - "traefik.enable=true"
