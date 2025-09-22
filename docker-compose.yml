@@ -1,0 +1,23 @@
+services:
+  filestash:
+    image: machines/filestash:latest
+    container_name: filestash
+    restart: always
+    # environment:
+      # Optionally, set where Filestash will look for files on the host
+      # LOCAL_FS_PATH: /srv/files
+      # Optionally, set authentication method, e.g., "noauth", "aa", or "proxy"
+      # AUTH: noauth
+    volumes:
+      - filestash:/app/data/state/
+      # - /host/path:/mnt  # If LOCAL_FS_PATH is set for local file access
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.filestash.rule=Host(`filestash.martin-linde.com`)"
+      - "traefik.http.routers.filestash.entrypoints=websecure"
+      - "traefik.http.services.filestash.loadbalancer.server.port=8334"
+      # Uncomment if you want to force HTTPS via middleware
+      # - "traefik.http.routers.filestash.middlewares=redirect@file"
+
+volumes:
+  filestash:
